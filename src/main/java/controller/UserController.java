@@ -14,7 +14,7 @@ import com.example.demo.entity.User;
 import com.example.demo.service.UserService;
 
 @RestController
-@CrossOrigin(origins = "http://localhost:5174")
+@CrossOrigin(origins = "https://sales-savvy-frontendapp.vercel.app")
 @RequestMapping("/api/users")
 public class UserController {
 
