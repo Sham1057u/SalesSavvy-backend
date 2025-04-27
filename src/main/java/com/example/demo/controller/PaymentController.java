@@ -17,7 +17,7 @@ import java.util.Map;
 import java.util.stream.Collectors;
 
 @RestController
-@CrossOrigin(origins = "https://sales-savvy-frontendapp.vercel.app", allowCredentials = "true")
+@CrossOrigin(origins = "https://sales-savvy-frontend.vercel.app", allowCredentials = "true")
 @RequestMapping("/api/payment")
 public class PaymentController {
 

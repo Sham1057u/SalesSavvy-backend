@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.Map;
 
 @RestController
-@CrossOrigin(origins = "https://sales-savvy-frontendapp.vercel.app", allowCredentials = "true") // Allow cross-origin requests
+@CrossOrigin(origins = "https://sales-savvy-frontend.vercel.app", allowCredentials = "true") // Allow cross-origin requests
 @RequestMapping("/api/orders")
 public class OrderController {
 
