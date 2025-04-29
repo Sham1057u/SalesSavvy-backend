@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.Map;
 
 @RestController
-@CrossOrigin(origins = "http://localhost:5174", allowCredentials = "true")
+@CrossOrigin(origins = "https://sales-savvy-frontend.vercel.app", allowCredentials = "true")
 @RequestMapping("/api/cart")
 public class CartController {
 
