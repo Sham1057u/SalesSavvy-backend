@@ -5,6 +5,7 @@ import java.util.Map;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -14,7 +15,7 @@ import com.example.demo.entity.User;
 import com.example.demo.service.UserService;
 
 @RestController
-@CrossOrigin(origins = "https://sales-savvy-frontend.vercel.app" )
+@CrossOrigin(origins = "http://localhost:8080" )
 @RequestMapping("/api/users")
 public class UserController {
 
@@ -23,6 +24,11 @@ public class UserController {
     @Autowired
     public UserController(UserService userService) {
         this.userService = userService;
+    }
+    
+    @GetMapping("/ping")
+    public String message() {
+    	return "server is running";
     }
 
     @PostMapping("/register")
