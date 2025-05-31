@@ -10,8 +10,7 @@ public class WebConfig implements WebMvcConfigurer {
     @Override
     public void addCorsMappings(CorsRegistry registry) {
         registry.addMapping("/**")  // Allows all endpoints
-                .allowedOrigins("https://sales-savvy-frontend.vercel.app/")  // Replace with your frontend URL
-                .allowedMethods("GET", "POST", "PUT", "DELETE")
+                .allowedOrigins("https://sales-savvy-frontend.vercel.app")  
                 .allowedHeaders("*");  // Allow all headers
     }
 }
