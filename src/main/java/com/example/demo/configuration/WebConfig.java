@@ -11,6 +11,10 @@ public class WebConfig implements WebMvcConfigurer {
     public void addCorsMappings(CorsRegistry registry) {
         registry.addMapping("/**")  // Allows all endpoints
                 .allowedOrigins("https://sales-savvy-frontend.vercel.app")  
-                .allowedHeaders("*");  // Allow all headers
+                .allowedHeaders("*")
+                .allowedMethods("*")
+                .allowedHeaders("*")
+                .allowCredentials(true)
+                .exposedHeaders("Set-Cookie");// Allow all headers
     }
 }
