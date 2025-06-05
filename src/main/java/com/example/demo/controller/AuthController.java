@@ -42,7 +42,7 @@ public class AuthController {
             cookie.setPath("/");
             cookie.setMaxAge(3600); // 1 hour
            // cookie.setDomain("localhost");
-            cookie.setDomain("https://salessavvy-backend-c2yc.onrender.com");
+          //  cookie.setDomain("https://salessavvy-backend-c2yc.onrender.com");
 
             response.addCookie(cookie);
            // Optional but useful
