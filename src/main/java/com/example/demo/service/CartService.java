@@ -91,7 +91,7 @@ public class CartService {
 
 			// Populate product details into the map
 			productDetails.put("product_id", product.getProductId());
-			productDetails.put("image_url", imageUrl);
+			//productDetails.put("image_url", imageUrl);
 			productDetails.put("name", product.getName());
 			productDetails.put("description", product.getDescription());
 			productDetails.put("price_per_unit", product.getPrice());

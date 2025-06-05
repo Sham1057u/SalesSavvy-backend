@@ -24,7 +24,7 @@ public class SecurityConfig {
             .csrf().disable()
             .authorizeHttpRequests()
                 .requestMatchers("/api/users/register", "/api/users/login","/api/auth/login").permitAll()
-                .anyRequest().authenticated();
+                .anyRequest().permitAll();
 
         return http.build();
     }
@@ -32,7 +32,7 @@ public class SecurityConfig {
     @Bean
     public CorsConfigurationSource corsConfigurationSource() {
         CorsConfiguration config = new CorsConfiguration();
-        config.setAllowedOrigins(List.of("https://sales-savvy-frontend.vercel.app"));
+        config.setAllowedOrigins(List.of("https://sales-savvy-frontend.vercel.app","http://localhost:5174"));
         config.setAllowedMethods(List.of("GET", "POST", "PUT", "DELETE", "OPTIONS"));
         config.setAllowedHeaders(List.of("*"));
         config.setAllowCredentials(true);
