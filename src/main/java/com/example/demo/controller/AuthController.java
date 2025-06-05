@@ -41,7 +41,9 @@ public class AuthController {
             cookie.setSecure(true); // Set to true if using HTTPS
             cookie.setPath("/");
             cookie.setMaxAge(3600); // 1 hour
-            cookie.setDomain("localhost");
+           // cookie.setDomain("localhost");
+            cookie.setDomain("sales-savvy-frontend.vercel.app");
+
             response.addCookie(cookie);
            // Optional but useful
             
