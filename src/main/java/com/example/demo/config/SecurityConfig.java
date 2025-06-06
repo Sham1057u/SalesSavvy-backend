@@ -1,10 +1,11 @@
 package com.example.demo.config;
 
+
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.web.SecurityFilterChain;
+import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.web.cors.CorsConfiguration;
 import org.springframework.web.cors.CorsConfigurationSource;
 import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
@@ -18,12 +19,12 @@ public class SecurityConfig {
     @Bean
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
         http
-            .cors() // Enable CORS
+            .cors()
             .and()
             .csrf().disable()
             .authorizeHttpRequests()
-                .requestMatchers("/api/users/register", "/api/users/login", "/api/auth/login").permitAll()
-                .anyRequest().permitAll();// secure remaining routes
+                .requestMatchers("/api/users/register", "/api/users/login","/api/auth/login").permitAll()
+                .anyRequest().permitAll();
 
         return http.build();
     }
@@ -31,11 +32,11 @@ public class SecurityConfig {
     @Bean
     public CorsConfigurationSource corsConfigurationSource() {
         CorsConfiguration config = new CorsConfiguration();
-        config.setAllowedOrigins(List.of("https://sales-savvy-frontend.vercel.app", "http://localhost:5174"));
+        config.setAllowedOrigins(List.of("https://sales-savvy-frontend.vercel.app","http://localhost:5174"));
         config.setAllowedMethods(List.of("GET", "POST", "PUT", "DELETE", "OPTIONS"));
         config.setAllowedHeaders(List.of("*"));
         config.setAllowCredentials(true);
-        config.setExposedHeaders(List.of("Set-Cookie")); // only expose Set-Cookie
+        config.setExposedHeaders(List.of("*")); // Optional, if frontend needs to read custom headers
 
         UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
         source.registerCorsConfiguration("/**", config);
