@@ -33,21 +33,24 @@ public class AuthController {
     @PostMapping("/login")
     public ResponseEntity<?> login(@RequestBody LoginRequest loginRequest, HttpServletResponse response) {
         try {
-            User user = authService.authenticate(loginRequest.getUsername(), loginRequest.getPassword());
-            String token = authService.generateToken(user);
+        	User user = authService.authenticate(loginRequest.getUsername(), loginRequest.getPassword());
+        	String token = authService.generateToken(user);
 
-            Cookie cookie = new Cookie("authToken", token);
-            cookie.setHttpOnly(true);
-            cookie.setSecure(true); 
-            cookie.setPath("/");
-            cookie.setMaxAge(3600); // 1 hour
-           // cookie.setDomain("localhost");
-          //  cookie.setDomain("https://salessavvy-backend-c2yc.onrender.com");
+        	// Remove this if you're using manual header method
+        	// Cookie cookie = new Cookie("authToken", token);
+        	// cookie.setHttpOnly(true);
+        	// cookie.setSecure(true);
+        	// cookie.setPath("/");
+        	// cookie.setMaxAge(3600); // 1 hour
+        	// cookie.setDomain("salessavvy-backend-c2yc.onrender.com"); // Optional, not needed
+        	// cookie.sameSite("None");
+        	// response.addCookie(cookie);
 
-            response.addCookie(cookie);
-            
-            response.addHeader("Set-Cookie",
-                    String.format("authToken=%s; HttpOnly; Path=/; Max-Age=3600; SameSite=None; Secure", token));
+        	// ✅ Recommended way (manual header for full control)
+        	response.addHeader("Set-Cookie",
+        	    "authToken=" + token +
+        	    "; HttpOnly; Secure; SameSite=None; Path=/; Max-Age=3600");
+
 
             
             Map<String, Object> responseBody = new HashMap<>();
